@@ -31,7 +31,7 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         //Comment out below to disable back/forward
         webView.allowsBackForwardNavigationGestures = true
         
-        //refresh
+        //refresh interval in seconds 43200=12hrs
         Timer.scheduledTimer(timeInterval: 43200, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
@@ -41,15 +41,18 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     }
     //MARK:- WKNavigationDelegate
     
-    func webView(webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: NSError) {
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         print(error.localizedDescription)
     }
-    func webView(webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("Strat to load")
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        print("Start to load")
     }
-    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("finish to load")
     }
+    
+    //WKUIDelegate
+    
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
         
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
