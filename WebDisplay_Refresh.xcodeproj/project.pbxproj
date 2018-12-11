@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C863479C14DA6E6B29796B94 /* Pods_WebDisplay_Refresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA47380A662982B9687BB1B4 /* Pods_WebDisplay_Refresh.framework */; };
 		DAB21EE921AF94A300062947 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB21EE821AF94A300062947 /* AppDelegate.swift */; };
 		DAB21EEB21AF94A300062947 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB21EEA21AF94A300062947 /* ViewController.swift */; };
 		DAB21EEE21AF94A300062947 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB21EEC21AF94A300062947 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		63F1F7B313223497B492F15A /* Pods-WebDisplay_Refresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebDisplay_Refresh.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebDisplay_Refresh/Pods-WebDisplay_Refresh.release.xcconfig"; sourceTree = "<group>"; };
+		A91F470F638CFB4FC521D18A /* Pods-WebDisplay_Refresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebDisplay_Refresh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebDisplay_Refresh/Pods-WebDisplay_Refresh.debug.xcconfig"; sourceTree = "<group>"; };
+		CA47380A662982B9687BB1B4 /* Pods_WebDisplay_Refresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebDisplay_Refresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB21EE521AF94A300062947 /* WebDisplay_Refresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebDisplay_Refresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB21EE821AF94A300062947 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAB21EEA21AF94A300062947 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C863479C14DA6E6B29796B94 /* Pods_WebDisplay_Refresh.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DEDA1AD2284A70144BA5FF1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A91F470F638CFB4FC521D18A /* Pods-WebDisplay_Refresh.debug.xcconfig */,
+				63F1F7B313223497B492F15A /* Pods-WebDisplay_Refresh.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4E9BDF60A7DF38EA979B87A3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CA47380A662982B9687BB1B4 /* Pods_WebDisplay_Refresh.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DAB21EDC21AF94A300062947 = {
 			isa = PBXGroup;
 			children = (
 				DAB21EE721AF94A300062947 /* WebDisplay_Refresh */,
 				DAB21EE621AF94A300062947 /* Products */,
+				0DEDA1AD2284A70144BA5FF1 /* Pods */,
+				4E9BDF60A7DF38EA979B87A3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DAB21EF721AF94A400062947 /* Build configuration list for PBXNativeTarget "WebDisplay_Refresh" */;
 			buildPhases = (
+				6A0816346319B7A0DC2F1D93 /* [CP] Check Pods Manifest.lock */,
 				DAB21EE121AF94A300062947 /* Sources */,
 				DAB21EE221AF94A300062947 /* Frameworks */,
 				DAB21EE321AF94A300062947 /* Resources */,
+				DA26B23C8FC1D6DFEC1F88D8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6A0816346319B7A0DC2F1D93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WebDisplay_Refresh-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA26B23C8FC1D6DFEC1F88D8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WebDisplay_Refresh/Pods-WebDisplay_Refresh-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
+				"${BUILT_PRODUCTS_DIR}/JustLog/JustLog.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JustLog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebDisplay_Refresh/Pods-WebDisplay_Refresh-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DAB21EE121AF94A300062947 /* Sources */ = {
@@ -280,6 +357,7 @@
 		};
 		DAB21EF821AF94A400062947 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A91F470F638CFB4FC521D18A /* Pods-WebDisplay_Refresh.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +376,7 @@
 		};
 		DAB21EF921AF94A400062947 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63F1F7B313223497B492F15A /* Pods-WebDisplay_Refresh.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
