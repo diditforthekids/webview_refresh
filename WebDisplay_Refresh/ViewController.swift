@@ -32,7 +32,7 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         webView.allowsBackForwardNavigationGestures = true
         
         //refresh interval in seconds 43200=12hrs
-        Timer.scheduledTimer(timeInterval: 43200, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 14400, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
   
@@ -52,7 +52,7 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     }
     
     //WKUIDelegate
-    
+    //handles the ok/cancel dialogue box
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
         
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
@@ -63,6 +63,18 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         
         alertController.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action) in
             completionHandler(false)
+        }))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    //handles the ok alert dialgoue.
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void)
+    {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+            completionHandler()
         }))
         
         self.present(alertController, animated: true, completion: nil)
